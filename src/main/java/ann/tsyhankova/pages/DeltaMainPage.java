@@ -17,9 +17,9 @@ public class DeltaMainPage implements MainPage {
     private final By searchDialog = By.xpath("//div[contains(@class, 'search-dialog')]");
     private final By submitButton = By.xpath("//button[@id='btn-book-submit']");
 
-    public ResultPage findFlight() {
-        openSearchDialog(driver.findElement(departureCityButton)).findAirportByName("WAS");
-        openSearchDialog(driver.findElement(arrivalCityButton)).findAirportByName("NYC");
+    public ResultPage findFlight(String departureAirport, String arrivalAirport) {
+        openSearchDialog(driver.findElement(departureCityButton)).findAirportByName(departureAirport);
+        openSearchDialog(driver.findElement(arrivalCityButton)).findAirportByName(arrivalAirport);
         openTripDropbox().chooseTripTypeByTypeName("Round Trip");
         openCalendarForm().setTripDates();
         driver.findElement(submitButton).click();
