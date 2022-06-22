@@ -13,24 +13,7 @@ public class DeltaResultPage implements ResultPage{
 
     private final By flightCardListSelector = By.xpath("//div[contains(@class,'flightcardContainer')]");
     @Override
-    public String getCheapestTicket() {
-        return Objects.requireNonNull(getFlightCardList()
-                        .stream()
-                        .min(Comparator.comparingInt(FlightCard::getMinPrice))
-                        .orElse(null))
-                .getFlightCardId();
-    }
-
-    @Override
-    public String getExpensiveTicket() {
-        return Objects.requireNonNull(getFlightCardList()
-                        .stream()
-                        .min(Comparator.comparingInt(FlightCard::getMaxPrice))
-                        .orElse(null))
-                .getFlightCardId();
-    }
-
-    private List<FlightCard> getFlightCardList(){
+    public List<FlightCard> getFlightCardList(){
         return driver.findElements(flightCardListSelector)
                 .stream()
                 .map(FlightCard::new)

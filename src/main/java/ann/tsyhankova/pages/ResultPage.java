@@ -1,7 +1,9 @@
 package ann.tsyhankova.pages;
 
-public interface ResultPage extends BasePage<ResultPage>{
+import ann.tsyhankova.elements.FlightCard;
 
-    String getCheapestTicket();
-    String getExpensiveTicket();
+import java.util.List;
+
+public interface ResultPage extends BasePage<ResultPage>{
+    List<FlightCard> getFlightCardList();
 }

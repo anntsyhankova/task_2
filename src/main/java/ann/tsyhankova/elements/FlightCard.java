@@ -55,11 +55,11 @@ public class FlightCard {
         return "Sold Out".equals(this.element.findElement(priceSelector).getText());
     }
 
-    public int getMaxPrice(){
+    public Integer getMaxPrice(){
         return getPriceList().stream().max(Integer::compare).orElse(null);
     }
 
-    public int getMinPrice(){
+    public Integer getMinPrice(){
         return getPriceList().stream().max(Integer::compare).orElse(null);
     }
 
